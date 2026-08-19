@@ -1,0 +1,110 @@
+# Reusable Capabilities
+
+A collection of reusable, independently packageable software capabilities developed for use across projects and tools.
+
+## Purpose
+
+This repository serves as a shared workspace for small, focused capabilities that can be reused across multiple applications.
+
+Each capability is developed as an independent unit with its own implementation, tests, documentation, and package definition.
+
+The repository provides a common home for these capabilities without coupling them to any particular application.
+
+## Capabilities
+
+| Capability                    | Purpose                                                                               |
+| ----------------------------- | ------------------------------------------------------------------------------------- |
+| `reporting`                   | Provides reusable runtime and structured reporting functionality.                     |
+| `error-classification-engine` | Classifies application errors and provides structured error information to consumers. |
+
+Additional capabilities can be added as they become reusable.
+
+## Structure
+
+```text
+reusable-capabilities/
+├── reporting/
+│   ├── README.md
+│   ├── pyproject.toml
+│   ├── ...
+│   └── tests
+│
+├── error-classification-engine/
+│   ├── README.md
+│   ├── pyproject.toml
+│   ├── ...
+│   └── tests
+│
+├── docs/                       # Private
+├── blueprints/                 # Private
+├── samples/                    # Private
+└── .gitignore
+```
+
+Each capability owns its implementation and package configuration. Capabilities may depend on other capabilities when required, with those dependencies declared through their individual package configuration.
+
+## Development
+
+The capabilities are maintained together in this repository for convenient development and organization.
+
+Tests can be executed for the complete repository with:
+
+```bash
+pytest
+```
+
+Individual capabilities can also be tested independently:
+
+```bash
+pytest reporting
+pytest error-classification-engine
+```
+
+## Package Independence
+
+The repository is an organizational container. It does not make the capabilities a single package.
+
+Each capability is intended to remain independently packageable and consumable.
+
+For example:
+
+```text
+Application
+    │
+    ├── Reporting
+    │
+    └── Error Classification
+```
+
+A capability may also depend on another reusable capability when required:
+
+```text
+Error Classification
+        │
+        └── Reporting
+```
+
+Such dependencies are managed at the individual capability level.
+
+## Documentation
+
+Each capability maintains its own public documentation in its respective directory.
+
+Additional internal documentation, blueprints, and samples may be maintained locally but are excluded from the public repository.
+
+These private materials are intended to be maintained separately in a future shared private engineering repository.
+
+## Design Principles
+
+- Small, focused responsibilities
+- Independent capabilities
+- Explicit package boundaries
+- Reusable across projects
+- Minimal coupling
+- Independently testable
+- Independently packageable
+- Stable public interfaces
+
+```
+This keeps the umbrella README deliberately **high-level**. The detailed purpose, usage, API, parameters, and behavior should remain in each capability's own README rather than turning this into a second documentation source.
+```
