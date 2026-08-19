@@ -1,0 +1,98 @@
+{
+    "ACCESS_DENIED": {
+        "description": "Access to the resource was denied.",
+        "messages": {
+            "backend": "Permission denied while attempting to access the requested resource.",
+            "frontend": "Access to the requested resource was denied.",
+            "log": "Access denied while processing resource."
+        },
+        "category": "filesystem",
+        "severity": "warning",
+        "patterns": [
+            "permission denied",
+            "access denied",
+            "access is denied"
+        ],
+        "rerun": false
+    },
+    "FILE_LOCKED": {
+        "description": "Resource is currently locked by another process.",
+        "messages": {
+            "backend": "The resource is locked by another process.",
+            "frontend": "The resource is currently in use.",
+            "log": "Resource locked by another process."
+        },
+        "category": "filesystem",
+        "severity": "warning",
+        "patterns": [
+            "being used by another process",
+            "file is being used",
+            "sharing violation"
+        ],
+        "rerun": [
+            "30s",
+            "2m",
+            "10m"
+        ]
+    },
+    "NOT_FOUND": {
+        "description": "Requested resource could not be found.",
+        "messages": {
+            "backend": "Requested resource could not be located.",
+            "frontend": "The requested resource could not be found.",
+            "log": "Resource not found."
+        },
+        "category": "filesystem",
+        "severity": "warning",
+        "patterns": [
+            "no such file or directory",
+            "cannot find the file",
+            "file not found",
+            "path not found"
+        ],
+        "rerun": false
+    },
+    "OUT_OF_SPACE": {
+        "description": "Storage device does not have sufficient free space.",
+        "messages": {
+            "backend": "Insufficient storage space available.",
+            "frontend": "Insufficient storage space available.",
+            "log": "Storage capacity exhausted."
+        },
+        "category": "storage",
+        "severity": "critical",
+        "patterns": [
+            "no space left on device",
+            "disk full",
+            "not enough disk space"
+        ],
+        "rerun": false
+    },
+    "NETWORK_TIMEOUT": {
+        "description": "Network operation exceeded the allowed timeout period.",
+        "messages": {
+            "backend": "Network operation timed out.",
+            "frontend": "The operation exceeded the allowed timeout period.",
+            "log": "Network timeout encountered."
+        },
+        "category": "network",
+        "severity": "warning",
+        "patterns": [
+            "connection timed out",
+            "operation timed out",
+            "network timeout",
+            "timed out"
+        ],
+        "rerun": [
+            "1m",
+            "5m",
+            "15m"
+        ]
+    },
+    "UNKNOWN_ERROR": {
+        "description": "Error could not be classified by the catalog.",
+        "category": "classification",
+        "severity": "warning",
+        "diagnostic_logging": true
+    }
+}

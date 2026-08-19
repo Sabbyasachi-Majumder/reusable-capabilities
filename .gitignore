@@ -1,0 +1,15 @@
+# Pytest
+.pytest_cache/
+**/.pytest_cache/
+
+# Private documentation
+docs and samples/
+**/docs and samples/
+
+# Internal compact content files
+*-content.compact.json
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/

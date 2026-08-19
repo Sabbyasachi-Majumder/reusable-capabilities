@@ -1,0 +1,41 @@
+{
+    "defaults": {
+        "destination": "log",
+        "log_type": "operational",
+        "timestamp_type": "time",
+        "timestamp_format": "standard",
+        "component_gap": "                                ",
+        "message_timestamp_type": "time",
+        "message_timestamp_format": "bracketed"
+    },
+    "logs": {
+        "root_directory": "logs",
+        "session_prefix": "session",
+        "operational_directory": "operational",
+        "diagnostic_directory": "diagnostic"
+    },
+    "header": {
+        "width": 50,
+        "separator": "=",
+        "uppercase": true,
+        "center": true
+    },
+    "sub_header": {
+        "width": 50,
+        "separator": "-",
+        "uppercase": false,
+        "center": false
+    },
+    "timestamp": {
+        "date_format": "%d-%m-%Y",
+        "time_format": "%H:%M:%S",
+        "date_time_format": "%d-%m-%Y %H:%M:%S"
+    },
+    "message": {
+        "data_separator": " : ",
+        "data_item_separator": ", ",
+        "label_value_separator": " = ",
+        "tag_prefix": "[",
+        "tag_suffix": "]"
+    }
+}
